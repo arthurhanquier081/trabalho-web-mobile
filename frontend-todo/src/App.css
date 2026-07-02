@@ -1,0 +1,111 @@
+.container-mobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: #f1f5f9;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.smartphone-screen {
+  width: 360px;
+  height: 640px;
+  background-color: #ffffff;
+  border: 10px solid #0f172a;
+  border-radius: 36px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.app-header {
+  background-color: #059669;
+  color: white;
+  padding: 24px 16px;
+  text-align: left;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.app-header span {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.todo-form {
+  display: flex;
+  padding: 16px;
+  gap: 8px;
+  background-color: #f8fafc;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.todo-input:focus {
+  border-color: #059669;
+}
+
+.todo-button {
+  background-color: #059669;
+  color: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.task-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.task-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #334155;
+  flex: 1;
+  text-align: left;
+}
+
+.delete-btn {
+  background-color: #fee2e2;
+  color: #ef4444;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.empty-message {
+  color: #64748b;
+  font-size: 14px;
+  margin-top: 30px;
+  text-align: center;
+}

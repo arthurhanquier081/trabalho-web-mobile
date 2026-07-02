@@ -1,68 +1,102 @@
-# Trabalho Prático: Desenvolvimento Web e Mobile
-**Repositório Oficial:** arthurhanquier081/trabalho-web-mobile
+# 🚀 Desenvolvimento Web e Mobile — Portfólio de Práticas Academicas
 
-Este repositório centraliza o desenvolvimento das atividades práticas das disciplinas de desenvolvimento Web e Mobile. O projeto consiste na arquitetura unificada de soluções Full-Stack, integrando APIs de Back-end em Node.js com interfaces modernas para Web (React) e dispositivos móveis (React Native).
+**🔗 Repositório Oficial:** [github.com/arthurhanquier081/trabalho-web-mobile](https://github.com/arthurhanquier081/trabalho-web-mobile) 
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Ambiente-Node.js%20LTS-green?style=for-the-badge&logo=node.js" alt="Node.js">
+  <img src="https://img.shields.io/badge/Front--End-React%20%2F%20Vite-blue?style=for-the-badge&logo=react" alt="React">
+  <img src="https://img.shields.io/badge/Back--End-Express.js-lightgrey?style=for-the-badge&logo=express" alt="Express">
+  <img src="https://img.shields.io/badge/Estilo-CSS3%20Responsivo-orange?style=for-the-badge&logo=css3" alt="CSS3">
+</p>
+
+> **Status do Projeto:** 📊 Concluído (Práticas 3 e 4 Finalizadas com Sucesso)
+
+Este repositório centraliza e documenta de forma profissional as soluções full-stack desenvolvidas para as disciplinas de Desenvolvimento Web e Mobile. O projeto adota a arquitetura de **Monorepo**, isolando dependências e microsserviços em pacotes específicos para garantir a escalabilidade.
 
 ---
 
-## 📁 Estrutura de Pastas (Monorepo)
+## 📁 Estrutura de Pastas e Componentes
 
-O projeto adota o padrão de múltiplos pacotes em um único repositório para garantir o isolamento de escopo de cada aplicação:
+O repositório está organizado de forma modular para separar as regras de negócio das APIs e as interfaces visuais:
 
 ```text
 📁 Web-Mobile/
-├── 📁 backend-agenda/   # API Node.js (Express) para gestão de contatos (Prática 3)
-├── 📁 backend-todo/     # API Node.js (Express) para gestão de tarefas (Prática 4)
-├── 📁 frontend-web/      # Interface Web Single Page Application em React/Vite (Prática 3)
-└── README.md            # Documentação arquitetural do projeto
+├── 📁 backend-agenda/   # API Node.js (Express) - Gestão de Contatos (Prática 3)
+├── 📁 backend-todo/     # API Node.js (Express) - Gestão de Tarefas (Prática 4)
+├── 📁 frontend-web/     # Interface Web SPA em React (Vite) - Agenda (Prática 3)
+├── 📁 frontend-todo/    # Interface Mobile Mockup em React (Vite) - To-Do List (Prática 4)
+└── README.md            # Documentação Master do Repositório (Padrão Alura) ```
 
-## 🛠️ Stack Tecnológica
-Ambiente de Execução: Node.js LTS
+### 🛠️ Tecnologias e Ferramentas Utilizadas
+Back-end
+Node.js & Express.js: Criação de servidores HTTP leves e rápidos.
 
-Back-end: Express.js, Cors (Cross-Origin Resource Sharing)
+CORS: Configuração de Cross-Origin Resource Sharing para liberação de acessos locais de portas distintas.
 
-Front-end Web: React.js, Vite, Hooks (useState, useEffect), CSS3 Responsivo
+Front-end (Web & Mobile Mockup)
+React.js (Vite): Estruturação de Single Page Applications (SPAs) otimizadas.
 
-##🚀 Progresso do Projeto & Funcionalidades Implementadas
-##⚙️ Engenharia de Back-end (Concluído)
-Isolamento de Portas: A API de Contatos foi fixada na porta 8080 e a API To-Do configurada na porta 8181 para viabilizar a execução simultânea dos microsserviços sem conflitos de rede (EADDRINUSE).
+Hooks (useState, useEffect): Controle total de estados de inputs e ciclos de vida assíncronos.
 
-Validação de Rotas: Endpoints de métodos HTTP GET e POST validados e testados individualmente utilizando o Postman, garantindo respostas com status codes 200 OK e 201 Created.
+CSS3 Avançado: Mockups simulados nativos e regras de responsividade com @media queries.
 
-## 💻 Front-end Web — Prática 3 (Concluído)
-Setup do Ambiente: Criação da SPA Web estruturada a partir do ecossistema Vite para otimização do bundling.
+### 🗺️ Mapeamento Arquitetural das APIs (Rotas)
 
-Gerenciamento de Estado: Implementação do Hook useState para controle estrito e captura em tempo real dos dados inseridos nos inputs (Nome, E-mail e Telefone).
+📇 1. API Agenda de Contatos (`backend-agenda` — Porta `8080`)
+* **Modelo do Objeto:** `{ id: Number, name: String, email: String, phone: String }`
 
-Usabilidade e Responsividade: Componentização de um formulário limpo com CSS avançado e regras de @media queries que garantem adaptabilidade fluida tanto para desktops quanto para displays mobile menores.
+| Método | Endpoint | Objetivo técnico | Status Code |
+| :--- | :--- | :--- | :--- |
+| **GET** | `/contatos` | Retorna o array de contatos registrados na agenda | `200 OK` |
+| **POST** | `/contatos` | Cria um novo contato validados por parâmetros | `201 Created` |
 
-Integração com a API (Full-Stack):
+📝 2. API To-Do List (`backend-todo` — Porta `8181`)
+* **Modelo do Objeto:** `{ id: Number, title: String, completed: Boolean }`
 
-Consumo de dados utilizando o hook useEffect realizando requisições assíncronas (GET) com fetch() apontando para a porta 8080 para renderização dinâmica da lista de contatos salvos.
+| Método | Endpoint | Objetivo técnico | Status Code |
+| :--- | :--- | :--- | :--- |
+| **GET** | `/api/tasks` | Retorna o array completo de afazeres | `200 OK` |
+| **GET** | `/api/tasks/:id` | Busca os dados específicos de uma tarefa filtrada por ID | `200 / 404` |
+| **POST** | `/api/tasks` | Insere uma nova meta no servidor com status padrão false | `201 Created` |
+| **PUT** | `/api/tasks/:id` | Altera propriedades ou inverte o estado de conclusão | `200 OK` |
+| **DELETE** | `/api/tasks/:id` | Remove fisicamente um registro através do ID | `200 OK` |
 
-Envio de dados via requisição assíncrona (POST) com cabeçalho application/json e validação do Status 201 Created.
 
-Mecanismo de re-renderização automática para recarregar a lista na tela imediatamente após um cadastro bem-sucedido.
+### 💻 Demonstração das Aplicações
+### 📅 Prática 3: Agenda Full-Stack (Web)
+Interface desktop adaptável com formulário síncrono. Consome dados via fetch() na porta 8080 e realiza re-renderização automática e reativa em tela imediatamente após a validação do salvamento de novos contatos.
 
-##📱 Front-end Mobile — Prática 4 (Próximo Passo)
-[ ] Inicialização da estrutura mobile utilizando o Expo para o desenvolvimento do aplicativo de tarefas (To-Do List) integrado à API da porta 8181.
+### 📱 Prática 4: To-Do List (Mockup Mobile)
+Aplicação mobile voltada para a melhor usabilidade do usuário (UX). Construído sob a metodologia Mobile-First, o app simula nativamente a carcaça física de um smartphone no browser, permitindo a listagem, adição via requisições assíncronas, exclusão por IDs e o efeito visual de texto riscado no clique via método PUT.
 
-Instruções para Inicialização dos Ambientes Localmente
-## 📑 Pré-requisitos
-Possuir o ambiente de execução do Node.js instalado globalmente no sistema operacional.
+### ⚙️ Como Executar os Projetos Localmente
+### 📋 Pré-requisitos
+Antes de começar, certifique-se de ter o Node.js (LTS) instalado em sua máquina.
 
-1. Inicialização do Back-end (API Agenda)
-Em um terminal dedicado na pasta raiz do projeto, execute:
+### 🏁 Passo a Passo de Inicialização
+### 🚀 1. Rodando a Prática 3 (Agenda de Contatos)
+Abra dois terminais paralelos no seu editor de código:
 
+#Terminal 1: Ligar o Servidor Back-end
 cd backend-agenda
 npm install
 npm run dev
 
-2. Inicialização do Front-end Web (React)
-Em um segundo terminal aberto na pasta raiz do projeto, execute:
-
+#Terminal 2: Abrir a Interface Web React
 cd frontend-web
 npm install
 npm run dev
 
-O compilador Vite gerará a URL de acesso à aplicação local (por padrão, http://localhost:5173), consumindo os dados diretamente da porta.
+### 🚀 2. Rodando a Prática 4 (To-Do List Mobile)
+Abra outros dois terminais dedicados:
+
+#Terminal 1: Iniciar a API de Tarefas
+cd backend-todo
+node server.js
+
+#Terminal 2: Abrir a Interface de Celular
+cd frontend-todo
+npm install
+npm run dev
+
+Aplicações desenvolvidas por Arthur Hanquier. Práticas validadas e prontas para avaliação! 🚀
