@@ -1,0 +1,98 @@
+/* Centralização e background suave */
+.container-principal {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #333333;
+}
+
+h2, h3 {
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+/* Formulário organizado em coluna */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+/* Inputs elegantes e fáceis de interagir */
+.campo input {
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.campo input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Botão com feedback visual (Usabilidade) */
+.botao-salvar {
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 8px;
+}
+
+.botao-salvar:hover {
+  background-color: #1d4ed8;
+}
+
+/* Seção da lista de contatos salvos */
+.lista-contatos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contato-item {
+  background-color: #f8fafc;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+/* Responsividade (Garante que se adapte a telas menores/celulares) */
+@media (max-width: 640px) {
+  .container-principal {
+    margin: 16px;
+    padding: 16px;
+  }
+  
+  .campo input, .botao-salvar {
+    font-size: 14px;
+  }
+}
